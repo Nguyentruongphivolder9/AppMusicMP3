@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/bannerViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@android:color/holo_orange_dark">
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/bannerCircleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:layout_alignParentEnd="true">
+
+        </me.relex.circleindicator.CircleIndicator3>
+    </RelativeLayout>
+
+</ScrollView>
