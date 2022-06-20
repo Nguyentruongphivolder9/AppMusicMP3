@@ -39,13 +39,4 @@ public class QuangCao {
         this.idBaiHat = idBaiHat;
     }
 
-    @Override
-    public String toString() {
-        return "QuangCao{" +
-                "idQuangCao='" + idQuangCao + '\'' +
-                ", hinhAnh='" + hinhAnh + '\'' +
-                ", idBaiHat='" + idBaiHat + '\'' +
-                '}';
-    }
 }
-

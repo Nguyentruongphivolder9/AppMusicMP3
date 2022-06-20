@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AppMusicMP3</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="home_fragment">Home Fragment</string>
-    <string name="search_fragment">Search Fragment</string>
+    <string name="search_fragment">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment">Home</string>
 </resources>

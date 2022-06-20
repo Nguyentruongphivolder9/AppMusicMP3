@@ -1,46 +1,87 @@
 package com.example.appmusicmp3.presentation.fragment;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
-
-import com.example.appmusicmp3.presentation.adapter.BannerAdapter;
-import com.example.appmusicmp3.data.models.QuangCao;
 import com.example.appmusicmp3.R;
-import com.example.appmusicmp3.common.AppConstant;
 import com.example.appmusicmp3.data.datasources.remote.APIService;
+import com.example.appmusicmp3.data.datasources.remote.AppConstant;
+import com.example.appmusicmp3.data.models.QuangCao;
+import com.example.appmusicmp3.presentation.adapter.BannerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import me.relex.circleindicator.CircleIndicator3;
+import me.relex.circleindicator.CircleIndicator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BannerFragment extends FragmentStateAdapter {
+/**
+ * A simple {@link Fragment} subclass.
+ * create an instance of this fragment.
+ */
+public class BannerFragment extends Fragment {
 
+    View view;
+    ViewPager viewPager;
+    CircleIndicator circleIndicator;
+    BannerAdapter bannerAdapter;
+    ArrayList<QuangCao> arrayListQuangcao;
+    Handler handler;
+    Runnable runnable;
+    int currentItem;
 
-    public BannerFragment(@NonNull FragmentActivity fragmentActivity) {
-        super(fragmentActivity);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_banner, container, false);
+        init();
+        event();
+        return view;}
+
+    private void event() {
+        viewPager = view.findViewById(R.id.bannerViewPager);
+        circleIndicator = view.findViewById(R.id.bannerCircleIndicator);
     }
 
-    @NonNull
-    @Override
-    public Fragment createFragment(int position) {
-        return null;
-    }
+    private void init() {
+        APIService apiService = AppConstant.getService();
+        Call<List<QuangCao>> callBanner = apiService.getDataBanner();
+        callBanner.enqueue(new Callback<List<QuangCao>>() {
+            @Override
+            public void onResponse(Call<List<QuangCao>> call, Response<List<QuangCao>> response) {
+                arrayListQuangcao = (ArrayList<QuangCao>) response.body();
+                Log.d("BBB", arrayListQuangcao.get(0).getHinhAnh());
+                bannerAdapter = new BannerAdapter(getActivity(), arrayListQuangcao);
+                viewPager.setAdapter(bannerAdapter);
+                handler = new Handler();
+                runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        currentItem = viewPager.getCurrentItem();
+                        currentItem++;
+                        if (currentItem >= viewPager.getAdapter().getCount()) {
+                            currentItem = 0;
+                        }
+                        viewPager.setCurrentItem(currentItem, true);
+                    }
+                };
+                handler.postDelayed(runnable, 4500);
+            }
 
-    @Override
-    public int getItemCount() {
-        return 0;
+            @Override
+            public void onFailure(Call<List<QuangCao>> call, Throwable t) {
+
+            }
+        });
     }
 }

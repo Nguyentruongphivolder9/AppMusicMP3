@@ -1,5 +1,6 @@
 package com.example.appmusicmp3.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -12,22 +13,28 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TabLayout mTabLayout;
-    private ViewPager2 mViewPager;
-    private ViewPagerAdapter mViewPagerAdapter;
+    TabLayout mTabLayout;
+    ViewPager2 mViewPager2;
+    ViewPagerAdapter mViewPagerAdapter;
+    private int[] tabIcons = {
+            R.drawable.icontrangchu,
+            R.drawable.iconsearch,
+    };
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mTabLayout = findViewById(R.id.tabLayout);
-        mViewPager = findViewById(R.id.viewPager);
+        mViewPager2 = findViewById(R.id.viewPager);
 
         mViewPagerAdapter = new ViewPagerAdapter(this);
-        mViewPager.setAdapter(mViewPagerAdapter);
+        mViewPager2.setAdapter(mViewPagerAdapter);
 
-        new TabLayoutMediator(mTabLayout, mViewPager, (tab, position) -> {
+        mTabLayout.getTabAt(1).setIcon(  R.drawable.iconsearch);
+        mTabLayout.getTabAt(0).setIcon(  R.drawable.icontrangchu);
+
+        new TabLayoutMediator(mTabLayout, mViewPager2, (tab, position) -> {
             switch (position) {
                 case 0:
                     tab.setText("Home");
@@ -38,5 +45,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }).attach();
+
     }
 }

@@ -4,27 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Activity.MainActivity">
-
+    tools:context=".Activity.MainActivity"
+    android:orientation="vertical">
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    </androidx.viewpager2.widget.ViewPager2>
-
-
+        android:layout_height="0dp"/>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
-        app:tabIndicatorColor="#B713F3"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#B713F3"
-        app:tabTextColor="#000000"
-        app:tabIndicatorHeight="2dp"
-        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </com.google.android.material.tabs.TabLayout>
 
 
