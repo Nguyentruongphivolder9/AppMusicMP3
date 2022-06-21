@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(this);
         mViewPager2.setAdapter(mViewPagerAdapter);
 
-        mTabLayout.getTabAt(1).setIcon(  R.drawable.iconsearch);
-        mTabLayout.getTabAt(0).setIcon(  R.drawable.icontrangchu);
+        final int[] tabIcons = {R.drawable.icontrangchu, R.drawable.icontimkiem};
 
         new TabLayoutMediator(mTabLayout, mViewPager2, (tab, position) -> {
+            tab.setIcon(tabIcons[position]);
             switch (position) {
                 case 0:
                     tab.setText("Home");
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     tab.setText("Search");
                     break;
             }
+
         }).attach();
 
     }

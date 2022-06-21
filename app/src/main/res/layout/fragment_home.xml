@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:fillViewport="true"
+    android:background="@drawable/bg_app"
     tools:context=".presentation.fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -13,11 +14,22 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <androidx.fragment.app.FragmentContainerView
+        <fragment
             android:name="com.example.appmusicmp3.presentation.fragment.BannerFragment"
             android:id="@+id/bannerFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.example.appmusicmp3.presentation.fragment.PlaylistFragment"
+            android:id="@+id/playlistFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <fragment
+            android:name="com.example.appmusicmp3.presentation.fragment.ChuDe_TheLoai_ToDayFragment"
+            android:id="@+id/chudevatheloaiFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
     </LinearLayout>
 

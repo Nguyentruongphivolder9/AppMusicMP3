@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".presentation.fragment.PlaylistFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:background="@drawable/bg_title_playlist"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/textviewTitlePlaypist"
+        android:text="TOP 100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:layout_below="@id/textviewTitlePlaypist"
+        android:id="@+id/listviewPlaylist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">\
+    </ListView>
+    <TextView
+        android:text="Xem Thêm Playlist"
+        android:textSize="19sp"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/iconmoreplaylist"
+        android:paddingLeft="5dp"
+        android:layout_below="@id/listviewPlaylist"
+        android:id="@+id/textviewViewmorePlaylist"
+        android:background="#c9c7c7"
+        android:layout_marginTop="8dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#0a0a0a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -3,18 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_app.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_imageview_banner.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_title_playlist.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/custom_bg_vien_banner.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/custom_bg_vien_indicator.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/menu.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_banner.xml" value="0.128" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_banner2.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_chu_de__the_loai__to_day.xml" value="0.24947916666666667" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_home2.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_playlist.xml" value="0.4" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_banner.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_playlist.xml" value="0.1" />
       </map>
     </option>
   </component>
