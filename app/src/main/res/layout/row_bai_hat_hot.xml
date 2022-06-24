@@ -21,19 +21,20 @@
         android:id="@+id/textviewTenbaihathot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <TextView
-        android:textColor="#8F8282"
-        android:text="Ca sĩ"
-        android:textSize="18sp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:layout_toRightOf="@id/imageviewBaihathot"
-        android:layout_marginTop="7dp"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@id/textviewTenbaihathot"
         android:id="@+id/textviewCasibaihathot"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewTenbaihathot"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="7dp"
+        android:layout_toRightOf="@id/imageviewBaihathot"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Ca sĩ"
+        android:textColor="#8F8282"
+        android:textSize="18sp" />
     <ImageView
         android:layout_marginRight="10dp"
         android:src="@drawable/iconlove"

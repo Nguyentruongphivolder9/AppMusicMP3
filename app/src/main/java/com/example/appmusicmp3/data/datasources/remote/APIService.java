@@ -34,4 +34,11 @@ public interface APIService {
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<BaiHat>> getdanhsachbaihattheoquangcao(@Field("idquangcao") String idqiangcao);
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<BaiHat>> getDanhsachbaihattheoplaylist(@Field("idplaylist") String idplaylist);
+
+    @GET("playlistforcurrent.php")
+    Call<List<Playlist>> getDanhsachcacplaylist();
 }

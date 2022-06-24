@@ -1,12 +1,5 @@
 package com.example.appmusicmp3.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,11 +10,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.appmusicmp3.R;
 import com.example.appmusicmp3.data.datasources.remote.APIService;
 import com.example.appmusicmp3.data.datasources.remote.AppConstant;
 import com.example.appmusicmp3.data.models.BaiHat;
+import com.example.appmusicmp3.data.models.Playlist;
 import com.example.appmusicmp3.data.models.QuangCao;
 import com.example.appmusicmp3.presentation.adapter.DanhsachbaihatAdapter;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -48,6 +48,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
     QuangCao quangCao;
     ArrayList<BaiHat> mangbaihat;
     DanhsachbaihatAdapter danhsachbaihatAdapter;
+    Playlist playlist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,23 +60,46 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
             setValueInview(quangCao.getTenbaihat(), quangCao.getHinhbaihat());
             getDataQuangcao(quangCao.getIdQuangCao());
         }
+        if (playlist != null && !playlist.getTen().equals("")) {
+            setValueInview(playlist.getTen(), playlist.getIcon());
+            getDataplaylist(playlist.getIdPlayList());
+        }
+    }
+
+    private void getDataplaylist(String idplaylist) {
+        APIService apiService = AppConstant.getService();
+        Call<List<BaiHat>> callback = apiService.getDanhsachbaihattheoplaylist(idplaylist);
+        callback.enqueue(new Callback<List<BaiHat>>() {
+            @Override
+            public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
+                mangbaihat = (ArrayList<BaiHat>) response.body();
+                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this, mangbaihat);
+                recyclerViewDanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
+                recyclerViewDanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<BaiHat>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void setValueInview(String ten, String hinh) {
         collapsingToolbarLayout.setTitle(ten);
-        try {
-            URL url = new URL(hinh);
-            Bitmap bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                collapsingToolbarLayout.setBackground(bitmapDrawable);
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Glide.with(this).load(hinh).into(imgDanhsachcakhuc);
+//        try {
+//            URL url = new URL(hinh);
+//            Bitmap bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                collapsingToolbarLayout.setBackground(bitmapDrawable);
+//            }
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        Glide.with(DanhsachbaihatActivity.this).load(hinh).into(imgDanhsachcakhuc);
     }
 
     private void getDataQuangcao(String idquangcao) {
@@ -124,7 +148,9 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         if (intent != null) {
             if (intent.hasExtra("banner")) {
                 quangCao = (QuangCao) intent.getSerializableExtra("banner");
-
+            }
+            if (intent.hasExtra("itemplaylist")) {
+                playlist = (Playlist) intent.getSerializableExtra("itemplaylist");
             }
         }
     }

@@ -60,6 +60,8 @@ public class BannerFragment extends Fragment {
             @Override
             public void onResponse(Call<List<QuangCao>> call, Response<List<QuangCao>> response) {
                 arrayListQuangcao = (ArrayList<QuangCao>) response.body();
+            Log.d("BBB","zz"+ arrayListQuangcao.get(0).getHinhbaihat());
+            Log.d("BBB", "dongquâco" + arrayListQuangcao.get(0).getHinhAnh());
                 bannerAdapter = new BannerAdapter(getActivity(), arrayListQuangcao);
                 viewPager.setAdapter(bannerAdapter);
                 circleIndicator.setViewPager(viewPager);
