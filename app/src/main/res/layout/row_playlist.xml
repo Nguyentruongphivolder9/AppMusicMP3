@@ -19,13 +19,14 @@
         android:layout_height="50dp"
         android:scaleType="fitXY"/>
     <TextView
+        android:background="#232323"
         android:textSize="13sp"
         android:text="Những Bài Hit Của"
         android:layout_alignBottom="@id/imageviewPlaylist"
         android:layout_toRightOf="@id/imageviewPlaylist"
         android:layout_marginLeft="13dp"
         android:textStyle="bold"
-        android:textColor="#ffff"
+        android:textColor="#D5D2D2"
         android:id="@+id/textviewNamePlaylist"
         android:maxLines="1"
         android:layout_marginBottom="5dp"

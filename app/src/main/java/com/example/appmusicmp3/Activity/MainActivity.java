@@ -16,10 +16,6 @@ public class MainActivity extends AppCompatActivity {
     TabLayout mTabLayout;
     ViewPager2 mViewPager2;
     ViewPagerAdapter mViewPagerAdapter;
-    private int[] tabIcons = {
-            R.drawable.icontrangchu,
-            R.drawable.iconsearch,
-    };
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

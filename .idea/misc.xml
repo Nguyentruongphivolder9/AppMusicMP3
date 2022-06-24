@@ -10,16 +10,22 @@
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/custom_bg_vien_indicator.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/menu.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_danhsachbaihat.xml" value="0.16799999999999998" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_album.xml" value="0.1524163568773234" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_bai_hat_hot.xml" value="0.24635416666666668" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_banner2.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_chu_de__the_loai__to_day.xml" value="0.24947916666666667" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_home2.xml" value="0.1" />
-        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_playlist.xml" value="0.4" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_playlist.xml" value="0.176" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_album.xml" value="0.5370370370370371" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_bai_hat_hot.xml" value="0.4" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_banner.xml" value="0.1" />
-        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_playlist.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_danh_sach_bai_hat.xml" value="0.2" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_playlist.xml" value="0.2550335570469799" />
       </map>
     </option>
   </component>

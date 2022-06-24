@@ -60,9 +60,9 @@ public class BannerFragment extends Fragment {
             @Override
             public void onResponse(Call<List<QuangCao>> call, Response<List<QuangCao>> response) {
                 arrayListQuangcao = (ArrayList<QuangCao>) response.body();
-                Log.d("BBB", arrayListQuangcao.get(0).getHinhAnh());
                 bannerAdapter = new BannerAdapter(getActivity(), arrayListQuangcao);
                 viewPager.setAdapter(bannerAdapter);
+                circleIndicator.setViewPager(viewPager);
                 handler = new Handler();
                 runnable = new Runnable() {
                     @Override
@@ -73,6 +73,7 @@ public class BannerFragment extends Fragment {
                             currentItem = 0;
                         }
                         viewPager.setCurrentItem(currentItem, true);
+                        handler.postDelayed(runnable, 4500);
                     }
                 };
                 handler.postDelayed(runnable, 4500);

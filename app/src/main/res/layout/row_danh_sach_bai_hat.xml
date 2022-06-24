@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="5dp">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_margin="15dp"
+            android:textSize="20sp"
+            android:text="1"
+            android:id="@+id/textviewDanhsachIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/textviewTenbaihat"
+            android:textSize="20sp"
+            android:text="Tên ca khúc"
+            android:textColor="#090909"
+            android:layout_toRightOf="@id/textviewDanhsachIndex"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:maxWidth="250dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/textviewTencasi"
+            android:text="Ca sĩ"
+            android:textSize="18sp"
+            android:textColor="#222020"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_toRightOf="@id/textviewDanhsachIndex"
+            android:layout_below="@id/textviewTenbaihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:src="@drawable/iconlove"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/imageviewLuotthichdanhsachbaihat"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
