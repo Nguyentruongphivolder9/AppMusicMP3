@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
+    app:cardBackgroundColor="#00000000"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp">
     <LinearLayout

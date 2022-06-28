@@ -16,7 +16,7 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:text="CÓ THỂ BẠN THÍCH"
+            android:text="BÀI HÁT YÊU THÍCH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </RelativeLayout>

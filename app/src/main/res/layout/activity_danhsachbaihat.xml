@@ -21,6 +21,10 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <View
+                android:background="@drawable/bg_imageview_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarDanhsach"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

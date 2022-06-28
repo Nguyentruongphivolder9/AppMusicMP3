@@ -8,10 +8,11 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:gravity="center"
-        android:background="@drawable/bg_title_playlist"
+        android:background="#00FF2200"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:id="@+id/textviewTitlePlaypist"

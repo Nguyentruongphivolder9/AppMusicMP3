@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@android:color/holo_orange_dark"
+    android:background="@drawable/bg_search"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     tools:context=".presentation.fragment.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:background="#00FDFDFD"
+        android:id="@+id/appBarlayoutSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/custom_bg_search"
+            android:id="@+id/tooolbarSearch"
+            android:layout_width="360dp"
+            android:layout_height="35dp"
+            app:titleTextColor="@color/white">
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvSearch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/search_fragment" />
+        android:layout_below="@id/appBarlayoutSearch"
+        android:layout_marginTop="6dp"></androidx.recyclerview.widget.RecyclerView>
 
-</FrameLayout>
+    <TextView
+        android:textColor="#E6E6E6"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:text="Rất tiếc không có kết quả phù hợp"
+        android:gravity="center"
+        android:id="@+id/textviewKhongcodulieu"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

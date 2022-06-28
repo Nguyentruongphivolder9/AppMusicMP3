@@ -25,52 +25,51 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.ViewHolder>{
+public class SearchbaihatAdapter extends RecyclerView.Adapter<SearchbaihatAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<BaiHat> baiHatArrayList;
+    ArrayList<BaiHat> mangbaihat;
 
-    public BaiHatHotAdapter(Context context, ArrayList<BaiHat> baiHatArrayList) {
+    public SearchbaihatAdapter(Context context, ArrayList<BaiHat> mangbaihat) {
         this.context = context;
-        this.baiHatArrayList = baiHatArrayList;
+        this.mangbaihat = mangbaihat;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_bai_hat_hot, parent, false);
+        View view = inflater.inflate(R.layout.row_search_bai_hat, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        BaiHat baiHat = baiHatArrayList.get(position);
+        BaiHat baiHat = mangbaihat.get(position);
+        holder.tvTenbaihat.setText(baiHat.getTenbaihat());
         holder.tvCasi.setText(baiHat.getCasi());
-        holder.tvTen.setText(baiHat.getTenbaihat());
-        Glide.with(context).load(baiHat.getHinhbaihat()).into(holder.imgHinh);
+        Glide.with(context).load(baiHat.getHinhbaihat()).into(holder.imgBaihat);
     }
 
     @Override
     public int getItemCount() {
-        return baiHatArrayList.size();
+        return mangbaihat.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
-        TextView tvTen, tvCasi;
-        ImageView imgHinh, imgLuotthich;
+        TextView tvTenbaihat, tvCasi;
+        ImageView imgBaihat, imgLuotthich;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTen = itemView.findViewById(R.id.textviewTenbaihathot);
-            tvCasi = itemView.findViewById(R.id.textviewCasibaihathot);
-            imgHinh = itemView.findViewById(R.id.imageviewBaihathot);
-            imgLuotthich = itemView.findViewById(R.id.imageviewLuotthich);
+            tvTenbaihat = itemView.findViewById(R.id.textviewSearchTen);
+            tvCasi = itemView.findViewById(R.id.textviewSearchCasi);
+            imgBaihat = itemView.findViewById(R.id.imageviewSearchhinh);
+            imgLuotthich = itemView.findViewById(R.id.imageviewSearchLuotthich);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, PlayNhacActivity.class);
-                    intent.putExtra("cakhuc", baiHatArrayList.get(getPosition()));
+                    intent.putExtra("cakhuc", mangbaihat.get(getPosition()));
                     context.startActivity(intent);
                 }
             });
@@ -79,15 +78,15 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
                 public void onClick(View view) {
                     imgLuotthich.setImageResource(R.drawable.iconloved);
                     APIService apiService = AppConstant.getService();
-                    Call<String> callback = apiService.updateLuotThich("1", baiHatArrayList.get(getPosition()).getIdbaihat());
+                    Call<String> callback = apiService.updateLuotThich("1", mangbaihat.get(getPosition()).getIdbaihat());
                     callback.enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             String ketqua = response.body();
                             if (ketqua.equals("Success")) {
-                                Toast.makeText(context, "Đã Thích", Toast.LENGTH_SHORT);
+                                Toast.makeText(context, "Đã thích", Toast.LENGTH_SHORT).show();
                             }else {
-                                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT);
+                                Toast.makeText(context,"Lỗi!", Toast.LENGTH_SHORT).show();
                             }
                         }
 

@@ -1,19 +1,28 @@
 package com.example.appmusicmp3.presentation.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appmusicmp3.Activity.PlayNhacActivity;
 import com.example.appmusicmp3.R;
+import com.example.appmusicmp3.data.datasources.remote.APIService;
+import com.example.appmusicmp3.data.datasources.remote.AppConstant;
 import com.example.appmusicmp3.data.models.BaiHat;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DanhsachbaihatAdapter extends RecyclerView.Adapter<DanhsachbaihatAdapter.ViewHolder>{
 
@@ -55,6 +64,39 @@ public class DanhsachbaihatAdapter extends RecyclerView.Adapter<DanhsachbaihatAd
             tvTenbaihat = itemView.findViewById(R.id.textviewTenbaihat);
             tvTencasi = itemView.findViewById(R.id.textviewTencasi);
             imgLuotthich = itemView.findViewById(R.id.imageviewLuotthichdanhsachbaihat);
+            imgLuotthich.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    imgLuotthich.setImageResource(R.drawable.iconloved);
+                    APIService apiService = AppConstant.getService();
+                    Call<String> callback = apiService.updateLuotThich("1", mangBaihat.get(getPosition()).getIdbaihat());
+                    callback.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String ketqua = response.body();
+                            if (ketqua.equals("Success")) {
+                                Toast.makeText(context, "Đã Thích", Toast.LENGTH_SHORT);
+                            }else {
+                                Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+
+                        }
+                    });
+                    imgLuotthich.setEnabled(false);
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, PlayNhacActivity.class);
+                    intent.putExtra("cakhuc", mangBaihat.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

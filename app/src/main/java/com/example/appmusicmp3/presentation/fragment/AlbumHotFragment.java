@@ -1,5 +1,6 @@
 package com.example.appmusicmp3.presentation.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.appmusicmp3.Activity.DanhsachallAlbumActivity;
 import com.example.appmusicmp3.R;
 import com.example.appmusicmp3.data.datasources.remote.APIService;
 import com.example.appmusicmp3.data.datasources.remote.AppConstant;
@@ -40,6 +42,13 @@ public class AlbumHotFragment extends Fragment {
         view =inflater.inflate(R.layout.fragment_album, container, false) ;
         recyclerViewAlbum = view.findViewById(R.id.recyclerviewAlbum);
         tvXemthemAlbum = view.findViewById(R.id.textviewXemthemAlbum);
+        tvXemthemAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DanhsachallAlbumActivity.class);
+                startActivity(intent);
+            }
+        });
         init();
         return view;
     }

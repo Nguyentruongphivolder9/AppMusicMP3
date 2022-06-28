@@ -12,57 +12,55 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.appmusicmp3.Activity.DanhsachallAlbumActivity;
 import com.example.appmusicmp3.Activity.DanhsachbaihatActivity;
-import com.example.appmusicmp3.Activity.DanhsachcacplaylistActivity;
 import com.example.appmusicmp3.R;
-import com.example.appmusicmp3.data.models.Playlist;
+import com.example.appmusicmp3.data.models.Album;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
-
-public class DanhsachcacplaylistAdapter extends RecyclerView.Adapter<DanhsachcacplaylistAdapter.ViewHolder>{
+public class DanhsachAllAlbumAdapter extends RecyclerView.Adapter<DanhsachAllAlbumAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<Playlist> mangPlaylist;
+    ArrayList<Album> mangallalbum;
 
-    public DanhsachcacplaylistAdapter(Context context, ArrayList<Playlist> mangPlaylist) {
+    public DanhsachAllAlbumAdapter(Context context, ArrayList<Album> mangallalbum) {
         this.context = context;
-        this.mangPlaylist = mangPlaylist;
+        this.mangallalbum = mangallalbum;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_danh_sach_cac_playlist, parent, false);
+        View view = inflater.inflate(R.layout.row_all_album, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Playlist playlist = mangPlaylist.get(position);
-        Glide.with(context).load(playlist.getIcon()).into(holder.imghinhnen);
-        holder.tvTenplaylist.setText(playlist.getTen());
+        Album album = mangallalbum.get(position);
+        Glide.with(context).load(album.getHinhAnhAlbum()).into(holder.imgAllAlbum);
+        holder.tvTenallAlbum.setText(album.getTenAlbum());
     }
 
     @Override
     public int getItemCount() {
-        return mangPlaylist.size();
+        return mangallalbum.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imghinhnen;
-        TextView tvTenplaylist;
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView imgAllAlbum;
+        TextView tvTenallAlbum;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imghinhnen = itemView.findViewById(R.id.imageviewDanhsachcacplaylist);
-            tvTenplaylist = itemView.findViewById(R.id.textviewTenDanhsachcacplaylist);
+            imgAllAlbum = itemView.findViewById(R.id.imageviewAllAlbum);
+            tvTenallAlbum = itemView.findViewById(R.id.textviewtenAlbum);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                    intent.putExtra("itemplaylist", mangPlaylist.get(getPosition()));
+                    intent.putExtra("album", mangallalbum.get(getPosition()));
                     context.startActivity(intent);
                 }
             });

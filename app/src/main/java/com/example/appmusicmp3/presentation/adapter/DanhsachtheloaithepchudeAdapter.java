@@ -13,56 +13,53 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.appmusicmp3.Activity.DanhsachbaihatActivity;
-import com.example.appmusicmp3.Activity.DanhsachcacplaylistActivity;
 import com.example.appmusicmp3.R;
-import com.example.appmusicmp3.data.models.Playlist;
+import com.example.appmusicmp3.data.models.TheLoai;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
-
-public class DanhsachcacplaylistAdapter extends RecyclerView.Adapter<DanhsachcacplaylistAdapter.ViewHolder>{
+public class DanhsachtheloaithepchudeAdapter extends RecyclerView.Adapter<DanhsachtheloaithepchudeAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<Playlist> mangPlaylist;
+    ArrayList<TheLoai> mangTheloai;
 
-    public DanhsachcacplaylistAdapter(Context context, ArrayList<Playlist> mangPlaylist) {
+    public DanhsachtheloaithepchudeAdapter(Context context, ArrayList<TheLoai> mangTheloai) {
         this.context = context;
-        this.mangPlaylist = mangPlaylist;
+        this.mangTheloai = mangTheloai;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.row_danh_sach_cac_playlist, parent, false);
+        View view = inflater.inflate(R.layout.row_the_loai_theo_chu_de, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Playlist playlist = mangPlaylist.get(position);
-        Glide.with(context).load(playlist.getIcon()).into(holder.imghinhnen);
-        holder.tvTenplaylist.setText(playlist.getTen());
+        TheLoai theLoai = mangTheloai.get(position);
+        Glide.with(context).load(theLoai.getHinhTheLoai()).into(holder.imgHinhnen);
+        holder.tvTentheloai.setText(theLoai.getTenTheLoai());
     }
 
     @Override
     public int getItemCount() {
-        return mangPlaylist.size();
+        return mangTheloai.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imghinhnen;
-        TextView tvTenplaylist;
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView imgHinhnen;
+        TextView tvTentheloai;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imghinhnen = itemView.findViewById(R.id.imageviewDanhsachcacplaylist);
-            tvTenplaylist = itemView.findViewById(R.id.textviewTenDanhsachcacplaylist);
+            imgHinhnen = itemView.findViewById(R.id.imageviewTheloaitheochude);
+            tvTentheloai = itemView.findViewById(R.id.textviewTentheloaitheochude);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                    intent.putExtra("itemplaylist", mangPlaylist.get(getPosition()));
+                    intent.putExtra("idtheloai", mangTheloai.get(getPosition()));
                     context.startActivity(intent);
                 }
             });

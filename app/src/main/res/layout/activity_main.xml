@@ -13,6 +13,7 @@
         android:layout_height="0dp"/>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
+        app:tabSelectedTextColor="@color/purple_200"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.tabs.TabItem

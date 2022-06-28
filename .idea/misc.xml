@@ -3,31 +3,48 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AppMusicMP3/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_app.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_imageview_banner.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_play_song.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_search.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/bg_title_playlist.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/custom_bg_search.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/custom_bg_vien_banner.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/custom_bg_vien_indicator.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/drawable/menu.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_danhsachall_album.xml" value="0.24635416666666668" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_danhsachall_album_main.xml" value="0.24635416666666668" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_danhsachallchude.xml" value="0.24635416666666668" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_danhsachbaihat.xml" value="0.176" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_danhsachcacplaylist2.xml" value="0.15037593984962405" />
-        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_danhsachtheloaithechude.xml" value="0.24635416666666668" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_main.xml" value="0.18518518518518517" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/activity_play_nhac.xml" value="0.2" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_album.xml" value="0.1524163568773234" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_bai_hat_hot.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_banner2.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_chu_de__the_loai__to_day.xml" value="0.24947916666666667" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_dia_nhac.xml" value="0.17777777777777778" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_home2.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_play_danh_sach_bai_hat.xml" value="0.1509433962264151" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_playlist.xml" value="0.176" />
-        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_search.xml" value="0.1" />
-        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_album.xml" value="0.1" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/fragment_search.xml" value="0.264" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_album.xml" value="0.264" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_all_album.xml" value="0.2453125" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_all_chu_de.xml" value="0.2453125" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_bai_hat_hot.xml" value="0.18181818181818182" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_banner.xml" value="0.16" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_danh_sach_bai_hat.xml" value="0.2" />
         <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_danh_sach_cac_playlist.xml" value="0.24635416666666668" />
-        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_playlist.xml" value="0.2550335570469799" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_play_bai_hat.xml" value="0.24635416666666668" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_playlist.xml" value="0.14869888475836432" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_search_bai_hat.xml" value="0.264" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/layout/row_the_loai_theo_chu_de.xml" value="0.2453125" />
+        <entry key="..\:/AppMusicMP3/app/src/main/res/menu/search_view.xml" value="0.152" />
       </map>
     </option>
   </component>

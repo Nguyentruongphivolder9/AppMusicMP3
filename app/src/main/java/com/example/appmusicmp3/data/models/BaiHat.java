@@ -1,9 +1,12 @@
 package com.example.appmusicmp3.data.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class BaiHat {
+public class BaiHat implements Parcelable {
 
 @SerializedName("Idbaihat")
 @Expose
@@ -24,7 +27,28 @@ private String linkbaihat;
 @Expose
 private String luotthich;
 
-public String getIdbaihat() {
+    protected BaiHat(Parcel in) {
+        idbaihat = in.readString();
+        tenbaihat = in.readString();
+        hinhbaihat = in.readString();
+        casi = in.readString();
+        linkbaihat = in.readString();
+        luotthich = in.readString();
+    }
+
+    public static final Creator<BaiHat> CREATOR = new Creator<BaiHat>() {
+        @Override
+        public BaiHat createFromParcel(Parcel in) {
+            return new BaiHat(in);
+        }
+
+        @Override
+        public BaiHat[] newArray(int size) {
+            return new BaiHat[size];
+        }
+    };
+
+    public String getIdbaihat() {
 return idbaihat;
 }
 
@@ -72,4 +96,18 @@ public void setLuotthich(String luotthich) {
 this.luotthich = luotthich;
 }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(idbaihat);
+        parcel.writeString(tenbaihat);
+        parcel.writeString(hinhbaihat);
+        parcel.writeString(casi);
+        parcel.writeString(linkbaihat);
+        parcel.writeString(luotthich);
+    }
 }

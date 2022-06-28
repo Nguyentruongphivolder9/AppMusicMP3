@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:scaleType="fitXY"
+        android:layout_margin="3dp"
+        android:id="@+id/imageviewSearchhinh"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+    <TextView
+        android:textSize="18sp"
+        android:id="@+id/textviewSearchTen"
+        android:textColor="#F8F4F4"
+        android:text="Tên bài hát"
+        android:layout_toRightOf="@id/imageviewSearchhinh"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="5dp"
+        android:maxWidth="250dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="13sp"
+        android:id="@+id/textviewSearchCasi"
+        android:textColor="#BDBABA"
+        android:text="Tên ca sĩ"
+        android:layout_toRightOf="@id/imageviewSearchhinh"
+        android:layout_below="@id/textviewSearchTen"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="5dp"
+        android:maxWidth="250dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/iconlove"
+        android:id="@+id/imageviewSearchLuotthich"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+</RelativeLayout>
