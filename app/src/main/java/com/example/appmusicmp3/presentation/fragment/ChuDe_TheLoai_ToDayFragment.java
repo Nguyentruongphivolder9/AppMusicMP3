@@ -15,6 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appmusicmp3.Activity.DanhsachallchudeActivity;
 import com.example.appmusicmp3.Activity.DanhsachbaihatActivity;
 import com.example.appmusicmp3.Activity.DanhsachtheloaithechudeActivity;
@@ -83,7 +86,10 @@ public class ChuDe_TheLoai_ToDayFragment extends Fragment {
                     ImageView imageView = new ImageView(getActivity());
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     if (chuDeArrayList.get(i).getHinhChuDe() != null) {
-                        Glide.with(getActivity()).load(chuDeArrayList.get(i).getHinhChuDe()).into(imageView);
+                        Glide.with(getActivity())
+                                .load(chuDeArrayList.get(i).getHinhChuDe())
+                                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(15)))
+                                .into(imageView);
                     }
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);
@@ -105,7 +111,10 @@ public class ChuDe_TheLoai_ToDayFragment extends Fragment {
                     ImageView imageView = new ImageView(getActivity());
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     if (theLoaiArrayList.get(j).getHinhTheLoai() != null) {
-                        Glide.with(getActivity()).load(theLoaiArrayList.get(j).getHinhTheLoai()).into(imageView);
+                        Glide.with(getActivity())
+                                .load(theLoaiArrayList.get(j).getHinhTheLoai())
+                                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(15)))
+                                .into(imageView);
                     }
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);

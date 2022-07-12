@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/coordinatorLayout"
+    android:background="#DF000000"
     tools:context=".Activity.DanhsachbaihatActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -31,14 +32,14 @@
                 app:layout_collapseMode="pin"
                 android:elevation="6dp"
                 android:layout_width="match_parent"
-                android:layout_height="75dp">
+                android:layout_height="60dp">
             </androidx.appcompat.widget.Toolbar>
             <ImageView
 
                 android:elevation="6dp"
                 android:layout_marginTop="38dp"
                 android:layout_marginBottom="50dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/ic_launcher_background"
                 android:id="@+id/imageviewDanhsachcakhuc"
                 android:layout_gravity="center"
                 android:layout_width="200dp"
@@ -46,17 +47,17 @@
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingactionButton"
-        app:layout_behavior="@string/bottom_sheet_behavior"
-        app:layout_anchor="@id/appBarlayout"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extendedFloatingActionButtonRandom"
+        android:backgroundTint="#8D09BD"
+        android:textSize="15dp"
+        android:text="PHÁT NGẪU NHIÊN"
         app:layout_anchorGravity="bottom|center"
-        app:fabSize="normal"
-        android:scaleType="fitXY"
-        android:src="@drawable/iconfloatingactionbutton"
-        app:backgroundTint="#9A2EE8"
+        app:layout_anchor="@id/appBarlayout"
+        app:layout_behavior="@string/bottom_sheet_behavior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_marginTop="30dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

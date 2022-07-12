@@ -3,7 +3,6 @@ package com.example.appmusicmp3.presentation.fragment;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.example.appmusicmp3.Activity.PlayNhacActivity;
 import com.example.appmusicmp3.R;
-import com.example.appmusicmp3.presentation.adapter.PlaynhacAdapter;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -40,7 +37,8 @@ public class DianhacFragment extends Fragment {
     }
 
     public void PlayNhac(String hinhbaihat) {
-        Glide.with(getActivity()).load(hinhbaihat).into(circleImageView);
+        Glide.with(getActivity()).load(hinhbaihat)
+                .into(circleImageView);
         objectAnimator.start();
     }
 }

@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
-    private static final int NUM_PAGES = 2;
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
@@ -31,7 +30,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new HomeFragment();
             case 1:
                 return new SearchFragment();
-
             default:
                 return new HomeFragment();
         }
@@ -39,6 +37,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return NUM_PAGES;
+        return 2;
     }
 }

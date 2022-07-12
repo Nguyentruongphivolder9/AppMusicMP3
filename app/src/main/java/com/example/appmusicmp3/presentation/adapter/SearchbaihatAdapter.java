@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appmusicmp3.Activity.PlayNhacActivity;
 import com.example.appmusicmp3.R;
 import com.example.appmusicmp3.data.datasources.remote.APIService;
@@ -48,7 +51,9 @@ public class SearchbaihatAdapter extends RecyclerView.Adapter<SearchbaihatAdapte
         BaiHat baiHat = mangbaihat.get(position);
         holder.tvTenbaihat.setText(baiHat.getTenbaihat());
         holder.tvCasi.setText(baiHat.getCasi());
-        Glide.with(context).load(baiHat.getHinhbaihat()).into(holder.imgBaihat);
+        Glide.with(context).load(baiHat.getHinhbaihat())
+                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(15)))
+                .into(holder.imgBaihat);
     }
 
     @Override

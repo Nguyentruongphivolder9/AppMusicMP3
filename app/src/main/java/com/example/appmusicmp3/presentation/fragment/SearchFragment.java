@@ -51,7 +51,7 @@ public class SearchFragment extends Fragment {
         recyclerViewSearch = view.findViewById(R.id.rcvSearch);
         tvKhongcodulieu = view.findViewById(R.id.textviewKhongcodulieu);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        toolbar.setTitle("");
+        toolbar.setTitle("Tìm kiếm bài hát");
         setHasOptionsMenu(true);
         return view;
     }

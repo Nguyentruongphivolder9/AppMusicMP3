@@ -1,13 +1,14 @@
 package com.example.appmusicmp3.Activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
+
 import com.example.appmusicmp3.presentation.adapter.ViewPagerAdapter;
 import com.example.appmusicmp3.R;
+
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPagerAdapter = new ViewPagerAdapter(this);
         mViewPager2.setAdapter(mViewPagerAdapter);
 
-        final int[] tabIcons = {R.drawable.icontrangchu, R.drawable.icontimkiem};
+        final int[] tabIcons = {R.drawable.iconhome, R.drawable.icontimkiem};
 
         new TabLayoutMediator(mTabLayout, mViewPager2, (tab, position) -> {
             tab.setIcon(tabIcons[position]);

@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appmusicmp3.R;
 import com.example.appmusicmp3.data.models.Playlist;
 
@@ -49,8 +52,12 @@ public class PlaylistAdapter extends ArrayAdapter<Playlist> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         Playlist playlist = getItem(position);
-        Glide.with(getContext()).load(playlist.getHinhPlaylist()).into(viewHolder.imgBackGround);
-        Glide.with(getContext()).load(playlist.getIcon()).into(viewHolder.imgPlaylist);
+        Glide.with(getContext()).load(playlist.getHinhPlaylist())
+                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(20)))
+                .into(viewHolder.imgBackGround);
+        Glide.with(getContext()).load(playlist.getIcon())
+                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(15)))
+                .into(viewHolder.imgPlaylist);
         viewHolder.tvNamePlaylist.setText(playlist.getTen());
         return convertView;
     }

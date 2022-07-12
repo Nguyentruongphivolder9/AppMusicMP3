@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appmusicmp3.Activity.DanhsachbaihatActivity;
 import com.example.appmusicmp3.R;
 import com.example.appmusicmp3.data.models.Album;
@@ -41,7 +44,10 @@ public class AlbumHotAdapter extends RecyclerView.Adapter<AlbumHotAdapter.ViewHo
         Album album = mangAlbum.get(position);
         holder.tvTencasiAlbum.setText(album.getTenCaSiAlbum());
         holder.tvTenAlbum.setText(album.getTenAlbum());
-        Glide.with(context).load(album.getHinhAnhAlbum()).into(holder.imgHinhAlbum);
+        Glide.with(context)
+                .load(album.getHinhAnhAlbum())
+                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(15)))
+                .into(holder.imgHinhAlbum);
     }
 
     @Override

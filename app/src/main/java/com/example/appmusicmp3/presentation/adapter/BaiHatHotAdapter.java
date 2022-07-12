@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appmusicmp3.Activity.PlayNhacActivity;
 import com.example.appmusicmp3.R;
 import com.example.appmusicmp3.data.datasources.remote.APIService;
@@ -28,11 +31,11 @@ import retrofit2.Response;
 public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<BaiHat> baiHatArrayList;
+    ArrayList<BaiHat> mangbaihat;
 
     public BaiHatHotAdapter(Context context, ArrayList<BaiHat> baiHatArrayList) {
         this.context = context;
-        this.baiHatArrayList = baiHatArrayList;
+        this.mangbaihat = baiHatArrayList;
     }
 
     @NonNull
@@ -45,15 +48,17 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        BaiHat baiHat = baiHatArrayList.get(position);
+        BaiHat baiHat = mangbaihat.get(position);
         holder.tvCasi.setText(baiHat.getCasi());
         holder.tvTen.setText(baiHat.getTenbaihat());
-        Glide.with(context).load(baiHat.getHinhbaihat()).into(holder.imgHinh);
+        Glide.with(context).load(baiHat.getHinhbaihat())
+                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(15)))
+                .into(holder.imgHinh);
     }
 
     @Override
     public int getItemCount() {
-        return baiHatArrayList.size();
+        return mangbaihat.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -70,7 +75,7 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, PlayNhacActivity.class);
-                    intent.putExtra("cakhuc", baiHatArrayList.get(getPosition()));
+                    intent.putExtra("cakhuc", mangbaihat.get(getPosition()));
                     context.startActivity(intent);
                 }
             });
@@ -79,7 +84,7 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
                 public void onClick(View view) {
                     imgLuotthich.setImageResource(R.drawable.iconloved);
                     APIService apiService = AppConstant.getService();
-                    Call<String> callback = apiService.updateLuotThich("1", baiHatArrayList.get(getPosition()).getIdbaihat());
+                    Call<String> callback = apiService.updateLuotThich("1", mangbaihat.get(getPosition()).getIdbaihat());
                     callback.enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {

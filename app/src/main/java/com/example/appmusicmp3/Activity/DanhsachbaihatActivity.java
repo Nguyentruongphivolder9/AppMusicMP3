@@ -11,15 +11,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.appmusicmp3.R;
 import com.example.appmusicmp3.data.datasources.remote.APIService;
 import com.example.appmusicmp3.data.datasources.remote.AppConstant;
@@ -30,6 +35,7 @@ import com.example.appmusicmp3.data.models.QuangCao;
 import com.example.appmusicmp3.data.models.TheLoai;
 import com.example.appmusicmp3.presentation.adapter.DanhsachbaihatAdapter;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.IOException;
@@ -48,7 +54,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
     CollapsingToolbarLayout collapsingToolbarLayout;
     Toolbar toolbar;
     RecyclerView recyclerViewDanhsachbaihat;
-    FloatingActionButton floatingActionButton;
+    ExtendedFloatingActionButton extendedFloatingActionButtonRandom;
     ImageView imgDanhsachcakhuc;
     QuangCao quangCao;
     ArrayList<BaiHat> mangbaihat;
@@ -157,7 +163,9 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Glide.with(this).load(hinh).into(imgDanhsachcakhuc);
+        Glide.with(this).load(hinh)
+                .apply(new RequestOptions().transform(new CenterCrop()).transform(new RoundedCorners(15)))
+                .into(imgDanhsachcakhuc);
     }
 
     private void getDataQuangcao(String idquangcao) {
@@ -186,7 +194,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(view -> finish());
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
-        floatingActionButton.setEnabled(false);
+        extendedFloatingActionButtonRandom.setEnabled(false);
     }
 
     private void event() {
@@ -194,7 +202,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
         toolbar = findViewById(R.id.toolbarDanhsach);
         recyclerViewDanhsachbaihat = findViewById(R.id.recyclerviewdanhsachbaihat);
-        floatingActionButton = findViewById(R.id.floatingactionButton);
+        extendedFloatingActionButtonRandom = findViewById(R.id.extendedFloatingActionButtonRandom);
         imgDanhsachcakhuc = findViewById(R.id.imageviewDanhsachcakhuc);
     }
 
@@ -216,8 +224,8 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         }
     }
     private void evenClick() {
-        floatingActionButton.setEnabled(true);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        extendedFloatingActionButtonRandom.setEnabled(true);
+        extendedFloatingActionButtonRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(DanhsachbaihatActivity.this, PlayNhacActivity.class);

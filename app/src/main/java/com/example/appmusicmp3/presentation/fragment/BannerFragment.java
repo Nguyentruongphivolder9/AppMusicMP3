@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Handler;
 import android.util.Log;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
+import me.relex.circleindicator.CircleIndicator3;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,8 +34,8 @@ import retrofit2.Response;
 public class BannerFragment extends Fragment {
 
     View view;
-    ViewPager viewPager;
-    CircleIndicator circleIndicator;
+    ViewPager2 viewPager2;
+    CircleIndicator3 circleIndicator3;
     BannerAdapter bannerAdapter;
     ArrayList<QuangCao> arrayListQuangcao;
     Handler handler;
@@ -49,8 +51,8 @@ public class BannerFragment extends Fragment {
         return view;}
 
     private void event() {
-        viewPager = view.findViewById(R.id.bannerViewPager);
-        circleIndicator = view.findViewById(R.id.bannerCircleIndicator);
+        viewPager2 = view.findViewById(R.id.bannerViewPager);
+        circleIndicator3 = view.findViewById(R.id.bannerCircleIndicator);
     }
 
     private void init() {
@@ -60,21 +62,19 @@ public class BannerFragment extends Fragment {
             @Override
             public void onResponse(Call<List<QuangCao>> call, Response<List<QuangCao>> response) {
                 arrayListQuangcao = (ArrayList<QuangCao>) response.body();
-            Log.d("BBB","zz"+ arrayListQuangcao.get(0).getHinhbaihat());
-            Log.d("BBB", "dongquâco" + arrayListQuangcao.get(0).getHinhAnh());
                 bannerAdapter = new BannerAdapter(getActivity(), arrayListQuangcao);
-                viewPager.setAdapter(bannerAdapter);
-                circleIndicator.setViewPager(viewPager);
+                viewPager2.setAdapter(bannerAdapter);
+                circleIndicator3.setViewPager(viewPager2);
                 handler = new Handler();
                 runnable = new Runnable() {
                     @Override
                     public void run() {
-                        currentItem = viewPager.getCurrentItem();
+                        currentItem = viewPager2.getCurrentItem();
                         currentItem++;
-                        if (currentItem >= viewPager.getAdapter().getCount()) {
+                        if (currentItem >= viewPager2.getAdapter().getItemCount()) {
                             currentItem = 0;
                         }
-                        viewPager.setCurrentItem(currentItem, true);
+                        viewPager2.setCurrentItem(currentItem, true);
                         handler.postDelayed(runnable, 4500);
                     }
                 };

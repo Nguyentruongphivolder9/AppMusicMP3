@@ -21,11 +21,10 @@
         android:layout_height="wrap_content"/>
 
     <ListView
-        android:layout_below="@id/textviewTitlePlaypist"
         android:id="@+id/listviewPlaylist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">\
-    </ListView>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textviewTitlePlaypist">\</ListView>
     <TextView
         android:text="Xem Thêm Playlist"
         android:textSize="19sp"
